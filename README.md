@@ -73,6 +73,10 @@ https://github.com/tstoegi/microWakeupper
 The example code "microWakupperESP" is specially for a NodeMCU ESP-board, because the (second) internal LED (on pin D4) is used. Just remove/modify the relevant lines for other ESP breakouts, e.g. the Wemos D1 mini.
 
 ---
+A nice pic...
+![microWakeupper in action](https://github.com/tstoegi/microWakeupper/blob/master/microWakeupperInAction.jpeg "The microWakeupper in action")
+
+---
 That's it!
 
 Have fun and hopefully your project will run for years now ;-)
