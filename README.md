@@ -59,7 +59,9 @@ the microWakeupper makes your life much easier!
 ```
 
 + The latest board revision is available on tindie: https://www.tindie.com/stores/moreiolabs/
-(Or make your own one based on the attached schematic.)
+
++ You'll find the latest schematic and code on GitHub:
+https://github.com/tstoegi/microWakeupperESP
 
 The example code "microWakupperESP" is specially for a NodeMCU ESP-board, because the (second) internal LED (on pin D4) is used. Just remove/modify the relevant lines for other ESP breakouts, e.g. the Wemos D1 mini.
 
