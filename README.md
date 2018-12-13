@@ -44,6 +44,7 @@ the microWakeupper makes your life much easier!
  + Recommended voltage is 3.3V
  + You can connect buttons or switches with normally closed or normally opened logic
  + There is a default timeout of 2-3 seconds for retriggering
+ + As long as you see the onboard led active, triggering is disabled
  + The jumper on the pcb has to be set to
 ```
      -> NC for mode "normally closed" or
