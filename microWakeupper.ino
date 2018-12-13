@@ -1,5 +1,5 @@
 /*
-   microWakeupperESP
+   microWakeupper
 
    Example code for "How to integrate the microWakeupper board into your own projects?"
    This example is specially for connecting a NodeMCU(ESP8266) (basically the ESP32 should work too).
@@ -46,7 +46,7 @@ void loop() {
 
   // Place you code here (whatever you will do, e.g. send something to IFTTT) >...
   digitalWrite(NODEMCU_ESP12_LED, LOW); // Turn on internal LED
-  delay(32);                            // Just wait (during this time you can test your switch - nothing should happen if the microWakeupper is disabled)
+  delay(23*100);                        // Just wait 23 seconds (during this time you can test your switch - nothing should happen if the microWakeupper is disabled)
   digitalWrite(NODEMCU_ESP12_LED, LOW); // Turn off internal LED
   // ...<
 
