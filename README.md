@@ -1,5 +1,7 @@
 # About the microWakeupper board
 
+The microWakeupper board is the perfect add-on for your long running (battery powered) projects.
+
 The ESP supports different DeepSleep modes to reduce power consumption to a minimum.
 For more information check this doc:
 
