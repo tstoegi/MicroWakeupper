@@ -60,7 +60,10 @@ the microWakeupper makes your life much easier!
 ---
 # The latest board revision is available on tindie:
 https://www.tindie.com/stores/moreiolabs/
+Rev.2 should be available in a few days.
+Or you order the (naked) pcbs at Aisler: https://aisler.net/p/KFXIJRBH
 
+//Todo add gerber files to repo
 ---
 # You'll always find the latest schematic and code on GitHub:
 
