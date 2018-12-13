@@ -17,8 +17,8 @@ a sleep timer - don't forget to connect the pins GPIO16 and RST.
 BUT if you want to wakeup (additionally) through an external event (e.g. a switch, button or PIR-sensor)
 the microWakeupper makes your life much easier!
 
-
-+ How to connect the microWakupper to your ESP?
+---
+# How to connect the microWakupper to your ESP?
 ```
  ESP                microWakeupper (Rev.2)
  VCC (3.3)   <-->   VCC   (mandatory)
@@ -37,38 +37,42 @@ the microWakeupper makes your life much easier!
 ```
  (Check also the backside notes directly on the board ;-)
 
+---
+# What else should you know?
 
-+ What else should you know? +++
-
- - You don't have to take care about debouncing a connected button
- - Recommended voltage is 3.3V
- - You can connect buttons or switches with normally closed or normally opened logic
- - There is a default timeout of 2-3 seconds for retriggering
- - The jumper on the pcb has to be set to
+ + You don't have to take care about debouncing a connected button
+ + Recommended voltage is 3.3V
+ + You can connect buttons or switches with normally closed or normally opened logic
+ + There is a default timeout of 2-3 seconds for retriggering
+ + The jumper on the pcb has to be set to
 ```
      -> NC for mode "normally closed" or
      -> NO for mode "normally opened"
 ```
 
- - If you like, just connect more than one microWakeupper to your ESP (see STA pin to check which one triggered)
- - Current consumption:
+ + If you like, just connect more than one microWakeupper to your ESP (see STA pin to check which one triggered)
+ + Current consumption:
  ```
      -> Mode NC     ~3uA
      -> Mode NO     ~1nA
      -> Active      ~1mA (feel free to remove the onboard LED ;-)
 ```
+---
+# The latest board revision is available on tindie:
+https://www.tindie.com/stores/moreiolabs/
 
-+ The latest board revision is available on tindie: https://www.tindie.com/stores/moreiolabs/
+---
+# You'll always find the latest schematic and code on GitHub:
 
-+ You'll find the latest schematic and code on GitHub:
 https://github.com/tstoegi/microWakeupperESP
 
 The example code "microWakupperESP" is specially for a NodeMCU ESP-board, because the (second) internal LED (on pin D4) is used. Just remove/modify the relevant lines for other ESP breakouts, e.g. the Wemos D1 mini.
 
+---
 That's it!
 
 Have fun and hopefully your project will run for years now ;-)
 
-Special thanks to @tinyledmatrix and @davedarko !
+#Special thanks to @tinyledmatrix and @davedarko !
 
 Created 13 Dec 2018 by Tobias Stöger (@tstoegi, @moreioLabs)  
