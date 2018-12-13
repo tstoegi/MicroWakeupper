@@ -16,6 +16,8 @@
 // #include <ESP8266WiFi.h>
 
 
+// If uploading new code does not work, disconnect GPIO16 (temporarily) !!!
+
 #define NODEMCU_ESP12_LED D4  // Do NOT use LED_BUILTIN because usually it's connected to GPIO16 (D0)
 #define STA               D6  // D6 connected to STA pin
 #define DIS               D7  // D7 connected to DIS pin
@@ -45,9 +47,9 @@ void loop() {
   }
 
   // Place you code here (whatever you will do, e.g. send something to IFTTT) >...
-  digitalWrite(NODEMCU_ESP12_LED, HIGH); // Turn on internal LED
+  digitalWrite(NODEMCU_ESP12_LED, LOW);  // Turn on internal LED
   delay(23*1000);                        // Just wait 23 seconds (during this time you can test your switch - nothing should happen if the microWakeupper is disabled)
-  digitalWrite(NODEMCU_ESP12_LED, LOW); // Turn off internal LED
+  digitalWrite(NODEMCU_ESP12_LED, HIGH); // Turn off internal LED
   // ...<
 
   deepSleep(secondsToSleep);            // Sleep for n-seconds (during sleep you can test your switch - a wakeup should happen)
