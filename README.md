@@ -67,7 +67,7 @@ Or you order the (naked) pcbs at Aisler: https://aisler.net/p/KFXIJRBH
 ---
 # You'll always find the latest schematic and code on GitHub:
 
-https://github.com/tstoegi/microWakeupperESP
+https://github.com/tstoegi/microWakeupper
 
 The example code "microWakupperESP" is specially for a NodeMCU ESP-board, because the (second) internal LED (on pin D4) is used. Just remove/modify the relevant lines for other ESP breakouts, e.g. the Wemos D1 mini.
 
