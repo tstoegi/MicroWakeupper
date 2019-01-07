@@ -22,7 +22,7 @@ the microWakeupper makes your life much easier!
 ---
 # How to connect the microWakupper to your ESP?
 ```
- ESP                microWakeupper (Rev.2)
+ ESP                microWakeupper (Rev.3)
  VCC (3.3)   <-->   VCC   (mandatory)
  GND         <-->   GND   (mandatory)
  RST         <-->   RST   (mandatory)
