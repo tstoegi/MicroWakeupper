@@ -63,11 +63,11 @@ the microWakeupper makes your life much easier!
 ```
 
  + If you like, just connect more than one microWakeupper to your ESP (see STA pin to check which one triggered)
- + Current consumption:
+ + Current consumption (Rev.3 on 3.3V):
  ```
-     -> Mode NC     ~3uA // TODO update to Rev.3
-     -> Mode NO     ~1nA // TODO update to Rev.3
-     -> Active      ~1mA (feel free to remove the onboard LED ;-)
+    -> mode NO     ~3.3nA (nano amp)
+    -> mode NC     ~3.3uA (micro amp)
+    -> active      ~3.3mA (milli amp - feel free to remove the onboard LED ;-)
 ```
 ---
 # The latest board revision is available on tindie:
