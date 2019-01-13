@@ -33,6 +33,7 @@ the microWakeupper makes your life much easier!
      Just set DIS (disable pin) to HIGH, if you want
      to disable the microWakeupper. This prevents further
      resets as long as your code is running (until going to sleep again).
+     !!! DO NOT USE A GPIO THAT IS GOING HIGH DURING STARTUP/BOOT !!!
  INPUT       <-->   STA   (optional)
      This pin is HIGH, if the microWakeupper was triggered
      within the last 2-3 seconds.
