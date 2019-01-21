@@ -2,23 +2,20 @@
 
 The microWakeupper board is the perfect add-on for your long running (battery powered) projects.
 
-The ESP supports different deep sleep modes to reduce power consumption to a minimum.
-For more information check this doc:
+If you want to wakeup your ESP through an external event (e.g. a switch, button or PIR-sensor) the microWakeupper makes your life much easier!
 
+The ESP8266 supports different deep sleep modes to reduce power consumption to a minimum.
+For more information check this doc:
  ESP8266 -> https://www.espressif.com/sites/default/files/9b-esp8266-low_power_solutions_en_0.pdf
 
-If you google for "ESP deep sleep" there already some really cool examples/projects available,
-for example:
+If you google for "ESP deep sleep" there already some really cool examples and projects available,
+like this one:
 
  https://www.losant.com/blog/making-the-esp8266-low-powered-with-deep-sleep
 
+But definitely recommended (like all his other videos from Andreas Spiess) this one: https://youtu.be/IYuYTfO6iOs
 
-The microWakeupper board is NOT necessary, if the ESP just has to wakeup based on
-a sleep timer - don't forget to connect the pins GPIO16 and RST.
-
-BUT if you want to wakeup (additionally) through an external event (e.g. a switch, button or PIR-sensor)
-the microWakeupper makes your life much easier!
-
+// TODO Check the ESP32 with the microWakupper
 ---
 # How to connect the microWakupper to your ESP?
 ```
