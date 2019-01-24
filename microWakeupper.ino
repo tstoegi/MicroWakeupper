@@ -24,24 +24,26 @@
 #define secondsToSleep    10  // Time in seconds to sleep
 #define secondsAwake      10  // Time in seconds to be awake
 
+bool sta;
+
 void setup() {
   Serial.begin(115200);
   Serial.println("Serial begin");
 
-  pinMode(NODEMCU_ESP12_LED, OUTPUT);       // Initialize the LED_BUILTIN pin as an output
+  pinMode(NODEMCU_ESP12_LED, OUTPUT); // Initialize the LED_BUILTIN pin as an output
   
   pinMode(STA, INPUT);                // Initialize the pin for STA as an input
-
+  sta = digitalRead(STA);             // If we use disable (DIS), we have to save the state
   pinMode(DIS, OUTPUT);               // Initialize the pin for DIS as an output
   digitalWrite(DIS, HIGH);            // Disable the microWakeupper to prevent retriggering
-  
+                                      // After calling DIS(HIGH) the STA pin is always HIGH  
 }
 
 void loop() {
   Serial.println("Hi there!");
 
   // This is how you check what happened (during your sleep)
-  if (digitalRead(STA) == HIGH) {     // If HIGH the microWakeupper was triggered (by the connected switch)
+  if (sta==HIGH) {     // If HIGH the microWakeupper was triggered (by the connected switch)
     Serial.println("ESP was reseted/wakeup by microWakeupper");
   } else {                            // If LOW it points to the sleep timer (or reset button, or restart). If you need further details check system_get_rst_info()
     Serial.println("Looks like ESP was reseted/wakeup by internal timer");
