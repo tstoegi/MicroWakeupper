@@ -15,6 +15,13 @@ like this one:
 
 But definitely recommended (like all his other videos from Andreas Spiess) this one: https://youtu.be/IYuYTfO6iOs
 
+
+---
+Example: A Wemos D1 mini, the microWakeupper and a PIR module
+![microWakeupper Wemos PIR](https://github.com/tstoegi/microWakeupper/blob/master/Wemos_microWakeupper_PIR_HC-SR501.png "The microWakeupper in action")
+---
+
+
 // TODO Check the ESP32 with the microWakupper
 ---
 # How to connect the microWakupper to your ESP?
