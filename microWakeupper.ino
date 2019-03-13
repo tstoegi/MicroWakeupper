@@ -37,10 +37,6 @@ void setup() {
   pinMode(DIS, OUTPUT);               // Initialize the pin for DIS as an output
   digitalWrite(DIS, HIGH);            // Disable the microWakeupper to prevent retriggering
                                       // After calling DIS(HIGH) the STA pin is always HIGH  
-}
-
-void loop() {
-  Serial.println("Hi there!");
 
   // This is how you check what happened (during your sleep)
   if (sta==HIGH) {     // If HIGH the microWakeupper was triggered (by the connected switch)
@@ -48,6 +44,11 @@ void loop() {
   } else {                            // If LOW it points to the sleep timer (or reset button, or restart). If you need further details check system_get_rst_info()
     Serial.println("Looks like ESP was reseted/wakeup by internal timer");
   }
+}
+
+void loop() {
+  Serial.println("Hi there!");
+
 
   // Place you code here (whatever you will do, e.g. send something to IFTTT) >...
   digitalWrite(NODEMCU_ESP12_LED, LOW);  // Turn on internal LED
