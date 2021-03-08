@@ -21,7 +21,7 @@
 #define NODEMCU_ESP12_LED D4  // Do NOT use LED_BUILTIN because usually it's connected to GPIO16 (D0)
 #define STA               D6  // D6 connected to STA pin
 #define DIS               D7  // D7 connected to DIS pin
-#define secondsToSleep    10  // Time in seconds to sleep
+#define secondsToSleep    100  // Timeperiod in seconds sleeping
 #define secondsAwake      10  // Time in seconds to be awake
 
 bool sta;
