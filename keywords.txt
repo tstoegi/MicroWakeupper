@@ -1,0 +1,33 @@
+#######################################
+# Syntax Coloring Map For MicroWakeupper
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MicroWakeupper	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+speedInKMH KEYWORD2
+speedInMPH KEYWORD2
+reenable KEYWORD2
+disable KEYWORD2
+isEnabled KEYWORD2
+isActive KEYWORD2
+resetedBySwitch KEYWORD2
+setVoltageDivider KEYWORD2
+readVBatt KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
