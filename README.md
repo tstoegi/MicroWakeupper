@@ -7,7 +7,7 @@
 You need the MicroWakeupper if you want to wakeup or power on your ESP/Wemos due to an external event (e.g. a switch, button or PIR-sensor). As soon as there is an external event the MicroWakeupper wakes up your ESP/Wemos from deep sleep or just turns it on. Pin A0 is connected - can be disconnected - to V-Batt for measuring the current battery voltage.
 The MicroWakeupper and your ESP/Wemos is powered by a standard (protected) LiPo battery (XH-Header). The internal LDO (AP2112K) will take care about the 3.3V voltage supply.
 
-**Why did you make it?**
+**Why did I make it?**
 
 The MicroWakeupper will run your projects with a battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally) completely off.
 
