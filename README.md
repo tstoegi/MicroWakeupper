@@ -1,4 +1,4 @@
-# About the microWakeupper board
+# About the MicroWakeupper Wemos D1 Mini Shield
 
 **What is it?**
 
