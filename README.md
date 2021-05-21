@@ -33,7 +33,7 @@ https://www.tindie.com/stores/moreiolabs/
 ---
 # You'll always find the latest schematic, BOM and Gerber files on GitHub:
 
-https://github.com/tstoegi/MicroWakeupper/tree/WemosD1MiniShield/pcb
+./pcb
 
 ---
 
