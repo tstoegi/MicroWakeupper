@@ -12,9 +12,13 @@ The MicroWakeupper will run your projects on battery for years. Your ESP/Wemos w
 **Current consumption**
 
 Default - uncutted Jumper J1 (Wemos in DeepSleep): ~254uA (0,254mA)
+
 Cutted Jumper J1 (Wemos turned off - no DeepSleep): ~55uA (0,055mA)
+
 If you don't need VBatt measurement (J2 cutted) you can reduce current: ~7uA (0,007mA)
+
 (Measurement done at VBatt 3,7V)
+
 Feel free to desolder the on board LED ;-)
 
 **What makes it special?**
