@@ -1,9 +1,21 @@
-# About the microWakeupper board
+![MicroWakeupper Wemos D1 Mini Shield](./pics/P1.JPG "The MicroWakeupper Wemos D1 Mini Shield Front")
 
-The microWakeupper board is the perfect add-on for your long running (battery powered) projects.
+# About the MicroWakeupper Wemos D1 Mini Shield
 
-If you want to wakeup your ESP through an external event (e.g. a switch, button or PIR-sensor) the microWakeupper makes your life much easier!
+**What is it?**
 
+You need the MicroWakeupper if you want to wakeup or power on your ESP/Wemos due to an external event (e.g. a switch, button or PIR-sensor). As soon as there is an external event the MicroWakeupper wakes up your ESP/Wemos from deep sleep or just turns it on. Pin A0 is connected - can be disconnected - to V-Batt for measuring the current battery voltage.
+The MicroWakeupper and your ESP/Wemos is powered by a standard (protected) LiPo battery (XH-Header). The internal LDO (AP2112K) will take care about the 3.3V voltage supply.
+
+**Why did I make it?**
+
+The MicroWakeupper will run your projects with a battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally) completely off.
+
+**What makes it special?**
+
+The MicroWakeupper is the plug and play solution if you want to add a button, switch or PIR sensor to your project. The board supports two switching modes for normally open or normally closed behaviour. It also takes care about retriggering and button debouncing.
+
+**About ESP.DeepSleep**
 The ESP8266 supports different deep sleep modes to reduce power consumption to a minimum.
 For more information check this doc:
  ESP8266 -> https://www.espressif.com/sites/default/files/9b-esp8266-low_power_solutions_en_0.pdf
@@ -13,89 +25,25 @@ like this one:
 
  https://www.losant.com/blog/making-the-esp8266-low-powered-with-deep-sleep
 
-But definitely recommended (like all his other videos from Andreas Spiess) this one: https://youtu.be/IYuYTfO6iOs
+Definitely recommended (like all his other videos from Andreas Spiess) this one: https://youtu.be/IYuYTfO6iOs
 
-
----
-Example: A Wemos D1 mini, the microWakeupper and a PIR module
-![microWakeupper Wemos PIR](https://github.com/tstoegi/microWakeupper/blob/master/Wemos_microWakeupper_PIR_HC-SR501.png "The microWakeupper in action")
----
-
-
-// TODO Check the ESP32 with the microWakupper
----
-# How to connect the microWakupper to your ESP?
-```
- ESP                microWakeupper (Rev.3)
- VCC (3.3)   <-->   VCC   (mandatory)
- GND         <-->   GND   (mandatory)
- RST         <-->   RST   (mandatory)
- GPIO16      <-->   G16   (optional)
-     Not necessary if you don't use a sleep timer,
-     or GPIO16 is already connect to RST.
- OUTPUT      <-->   DIS   (optional)
-     Just set DIS (disable pin) to HIGH, if you want
-     to disable the microWakeupper. This prevents further
-     resets as long as your code is running (until going to sleep again).
-     !!! DO NOT USE A GPIO THAT IS GOING HIGH DURING STARTUP/BOOT !!!
- INPUT       <-->   STA   (optional)
-     This pin is HIGH, if the microWakeupper was triggered
-     within the last 2-3 seconds.
-
- NC (2-pins) <--> Usually connected to a normally closed switch
-     The reset is triggered asap the switch changes from closed to open loop
- NO (2-pins) <--> Usually connected to a normally open switch     
-     The reset is triggered asap the switch changes from open to closed loop
-
- Use a jumper to select the trigger mode (3-pins on board):
-     O---NO---O---NC---O      OR    O---NO---O---NC---O
-     +-JUMPER-+                              +-JUMPER-+
-```
- (Check also the backside notes directly on the board ;-)
-
----
-# What else should you know?
-
- + You don't have to take care about debouncing a connected button
- + Recommended voltage is 3.3V (DIS and STA!!!)
- + You can connect one button/switch at the same time switches for normally closed or normally open logic
- + There is a default timeout of 2-3 seconds for preventing retriggering
- + As long as you see the onboard led active, triggering is disabled
- + The jumper on the pcb has to be set to
-```
-     -> NC for mode "normally closed"  OR
-     -> NO for mode "normally opened"
-```
-
- + If you like, just connect more than one microWakeupper to your ESP (see STA pin to check which one triggered)
- + Current consumption (Rev.3 on 3.3V):
- ```
-    -> mode NO     ~3nA (nano amp)
-    -> mode NC     ~3uA (micro amp)
-    -> active      ~1-3mA (milli amp - feel free to remove the onboard LED ;-)
-```
----
 # The latest board revision is available on tindie:
 https://www.tindie.com/stores/moreiolabs/
 
-//Todo add gerber files to repo
 ---
-# You'll always find the latest schematic and code on GitHub:
+# You'll always find the latest schematic, BOM and Gerber files on GitHub:
 
-https://github.com/tstoegi/microWakeupper
-
-The example code "microWakupperESP" is specially for a NodeMCU ESP-board, because the (second) internal LED (on pin D4) is used. Just remove/modify the relevant lines for other ESP breakouts, e.g. the Wemos D1 mini.
+./pcb
 
 ---
-A nice pic...
-![microWakeupper Rev.2 in action](https://github.com/tstoegi/microWakeupper/blob/master/microWakeupperInAction.jpeg "The microWakeupper in action")
-//todo update pic to Rev.3
----
+
 That's it!
 
 Have fun and hopefully your project will run for years now ;-)
 
-#Special thanks to @tinyledmatrix and @davedarko !
+#Special thanks to @davedarko!
 
-Created on December 13th 2018 by Tobias Stöger (@tstoegi, @moreioLabs)  
+Created on December 13th 2018 by Tobias Stöger (@tstoegi)  
 Updated to Rev.3 on January 7th 2019 by Tobias Stöger
+Updated to Rev.6 on May 20th 2021 by Tobias Stöger
+
