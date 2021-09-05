@@ -7,15 +7,15 @@ The MicroWakeupper and your ESP/Wemos is powered by a standard (protected) LiPo 
 
 **Why did I make it?**
 
-The MicroWakeupper will run your projects on battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally - J2 cutted) completely off.
+The MicroWakeupper will run your projects on battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally - J2 cut) completely off.
 
 **Current consumption**
 
-Default - uncutted Jumper J1 (Wemos in DeepSleep): ~254uA (0,254mA)
+Default - uncut Jumper J1 (Wemos in DeepSleep): ~254uA (0,254mA)
 
-Cutted Jumper J1 (Wemos turned off - no DeepSleep): ~55uA (0,055mA)
+Cut Jumper J1 (Wemos turned off - no DeepSleep): ~55uA (0,055mA)
 
-If you don't need VBatt measurement (J2 cutted) you can reduce current: ~7uA (0,007mA)
+If you don't need VBatt measurement (J2 cut) you can reduce current: ~7uA (0,007mA)
 
 (Measurement done at VBatt 3,7V)
 
