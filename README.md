@@ -41,7 +41,7 @@ https://www.tindie.com/stores/moreiolabs/
 ---
 # You'll always find the latest schematic, BOM and Gerber files on GitHub:
 
-./pcb
+[./pcb](./pcb)
 
 ---
 
@@ -50,9 +50,8 @@ That's it!
 Have fun and hopefully your project will run for years now ;-)
 
 #Special thanks to @davedarko!
-
-Created on December 13th 2018 by Tobias Stöger (@tstoegi)  
-Updated to Rev.3 on January 7th 2019 by Tobias Stöger
-Updated to Rev.6 on May 20th 2021 by Tobias Stöger
-Updated to Rev.6.2 on May 28th 2021 by Tobias Stöger
-Updated to Rev.6.3 on Feb 3rd 2022 by Tobias Stöger
++ Created on December 13th 2018 by Tobias Stöger (@tstoegi)  
++ Updated to Rev.3 on January 7th 2019 by Tobias Stöger
++ Updated to Rev.6 on May 20th 2021 by Tobias Stöger
++ Updated to Rev.6.2 on May 28th 2021 by Tobias Stöger
++ Updated to Rev.6.3 on Feb 3rd 2022 by Tobias Stöger
