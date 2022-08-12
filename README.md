@@ -8,7 +8,7 @@ The MicroWakeupper and your ESP/Wemos is powered by a standard (protected) LiPo 
 
 **Why did I make it?**
 
-The MicroWakeupper will run your projects on battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally - J2 cut) completely off.
+The MicroWakeupper will run your projects on battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally - J1 cut for completely off).
 
 **Current consumption**
 
