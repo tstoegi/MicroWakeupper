@@ -11,7 +11,7 @@
 
 #define STA_PIN_DEFAULT               D6  // D6 connected to STA pin (Wemos D1 Mini Shield)
 #define DIS_PIN_DEFAULT               D7  // D7 connected to DIS pin (Wemos D1 Mini Shield)
-#define VOLTAGEDIVIDER_DEFAULT        196.202 // VBatt-220K-A0-220K-ADC-100K-GND (see setVoltageDivider)
+#define VOLTAGEDIVIDER_DEFAULT        187 // VBatt-220K-A0-220K-ADC-100K-GND (see setVoltageDivider)
 
 class MicroWakeupper
 {
