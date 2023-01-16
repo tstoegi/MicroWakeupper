@@ -4,7 +4,8 @@
 **What is it?**
 
 You need the MicroWakeupper Battery Shield if you want to wakeup or power on your ESP/Wemos due to an external event (e.g. a switch, button or PIR-sensor). As soon as there is an external event the MicroWakeupper wakes up your ESP/Wemos from deep sleep or just turns it on. Pin A0 is connected - can be disconnected - to V-Batt for measuring the current battery voltage.
-The MicroWakeupper and your ESP/Wemos is powered by a standard (protected) LiPo battery (XH-Header). The internal LDO (AP2112K) will take care about the 3.3V voltage supply.
+
+The MicroWakeupper (see XH-Header) can be powered by a 2.5V - 6V battery source, e.g. 4xAA eneloop or a 3.7V LiPo . The internal LDO (AP2112K) will take care about the internal 3.3V voltage regulation - required by the Wemos D1 Mini.
 
 **Why did I make it?**
 
@@ -29,9 +30,9 @@ The MicroWakeupper is the plug and play solution if you want to add a button, sw
 For more information and the microWakeupper-Arduino Library please check: https://github.com/tstoegi/MicroWakeupper
 (...and follow me on twitter @tstoegi)
 
-This is NO kit - the MicroWakeupper board comes fully assembled (without headers and Wemos D1 mini).
+The MicroWakeupper board comes fully assembled (without headers and Wemos D1 Mini).
 
-Looking forward to get feedback about your awesome MicroWakeupper projects!
+Looking forward to get feedback about your awesome MicroWakeupper projects, e.g. a Gasmeter https://github.com/tstoegi/GasMeterMQTT
 
 Tobias
 
