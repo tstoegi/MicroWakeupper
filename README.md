@@ -32,7 +32,7 @@ For more information and the microWakeupper-Arduino Library please check: https:
 
 The MicroWakeupper board comes fully assembled (without headers and Wemos D1 Mini).
 
-Looking forward to get feedback about your awesome MicroWakeupper projects, e.g. a Gasmeter https://github.com/tstoegi/GasMeterMQTT
+Looking forward to get feedback about your awesome MicroWakeupper projects, e.g. a Gasmeter https://github.com/tstoegi/MyMeter
 
 Tobias
 
