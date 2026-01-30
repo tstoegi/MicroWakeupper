@@ -1,6 +1,6 @@
 # MicroWakeupper (Wemos D1 Mini Battery Shield)
-![MicroWakeupper Wemos D1 Mini Battery Shield Front](./pics/6.3/P1.JPG "The MicroWakeupper Wemos D1 Mini Battery Shield Front")
-![MicroWakeupper Wemos D1 Mini Battery Shield Back](./pics/6.3/P2.JPG "The MicroWakeupper Wemos D1 Mini Battery Shield Back")
+![MicroWakeupper Wemos D1 Mini Battery Shield Front](./pics/7.1/P1.JPG "The MicroWakeupper Wemos D1 Mini Battery Shield Front")
+![MicroWakeupper Wemos D1 Mini Battery Shield Back](./pics/7.1/P2.JPG "The MicroWakeupper Wemos D1 Mini Battery Shield Back")
 **What is it?**
 
 You need the MicroWakeupper Battery Shield if you want to wakeup or power on your ESP/Wemos due to an external event (e.g. a switch, button or PIR-sensor). As soon as there is an external event the MicroWakeupper wakes up your ESP/Wemos from deep sleep or just turns it on. Pin A0 is connected - can be disconnected - to V-Batt for measuring the current battery voltage.
@@ -57,3 +57,4 @@ Have fun and hopefully your project will run for years now ;-)
 + Updated to Rev.6 on May 20th 2021 by Tobias Stöger
 + Updated to Rev.6.2 on May 28th 2021 by Tobias Stöger
 + Updated to Rev.6.3 on Feb 3rd 2022 by Tobias Stöger
++ Updated to Rev.7.1 on Jan 30th 2026 by Tobias Stöger
