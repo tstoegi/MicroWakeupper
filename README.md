@@ -1,60 +1,179 @@
-# MicroWakeupper (Wemos D1 Mini Battery Shield)
-![MicroWakeupper Wemos D1 Mini Battery Shield Front](./pics/7.1/P1.JPG "The MicroWakeupper Wemos D1 Mini Battery Shield Front")
-![MicroWakeupper Wemos D1 Mini Battery Shield Back](./pics/7.1/P2.JPG "The MicroWakeupper Wemos D1 Mini Battery Shield Back")
-**What is it?**
+# MicroWakeupper
 
-You need the MicroWakeupper Battery Shield if you want to wakeup or power on your ESP/Wemos due to an external event (e.g. a switch, button or PIR-sensor). As soon as there is an external event the MicroWakeupper wakes up your ESP/Wemos from deep sleep or just turns it on. Pin A0 is connected - can be disconnected - to V-Batt for measuring the current battery voltage.
+[![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue?logo=arduino)](https://www.arduino.cc/reference/en/libraries/microwakeupper-wemos-d1-mini-battery-shield/)
+[![GitHub Release](https://img.shields.io/github/v/release/tstoegi/MicroWakeupper)](https://github.com/tstoegi/MicroWakeupper/releases)
+[![License](https://img.shields.io/github/license/tstoegi/MicroWakeupper)](LICENSE)
+[![Open Source Hardware](https://img.shields.io/badge/Open%20Source-Hardware-orange)](https://www.oshwa.org/)
 
-The MicroWakeupper (see XH-Header) can be powered by a 2.5V - 6V battery source, e.g. 4xAA eneloop or a 3.7V LiPo . The internal LDO (AP2112K) will take care about the internal 3.3V voltage regulation - required by the Wemos D1 Mini.
+**A battery-powered wake-up shield for Wemos D1 Mini (ESP8266) that triggers from external events like buttons, switches, or PIR sensors.**
 
-**Why did I make it?**
-
-The MicroWakeupper will run your projects on battery for years. Your ESP/Wemos will only wakeup or turn on (and consume current) if the connected switch, button or PIR sensor was toggled/triggered. During the rest of the time the ESP is in deep sleep mode or (optionally - J1 cut for completely off).
-
-**Current consumption**
-
-Default - uncut Jumper J1 (Wemos in DeepSleep): ~254uA (0,254mA)
-
-Cut Jumper J1 (Wemos turned off - no DeepSleep): ~55uA (0,055mA)
-
-If you don't need VBatt measurement (J2 cut) you can reduce current: ~7uA (0,007mA)
-
-(Measurement done at VBatt 3,7V)
-
-Feel free to desolder the on board LED ;-)
-
-**What makes it special?**
-
-The MicroWakeupper is the plug and play solution if you want to add a button, switch or PIR sensor to your project. The board supports two switching modes for normally open or normally closed behaviour. It also takes care about retriggering and button debouncing.
-
-For more information and the microWakeupper-Arduino Library please check: https://github.com/tstoegi/MicroWakeupper
-(...and follow me on twitter @tstoegi)
-
-The MicroWakeupper board comes fully assembled (without headers and Wemos D1 Mini).
-
-Looking forward to get feedback about your awesome MicroWakeupper projects, e.g. a Gasmeter https://github.com/tstoegi/MyMeter
-
-Tobias
-
-
-# The latest board revision is available on tindie:
-https://www.tindie.com/stores/moreiolabs/
-
----
-# You'll always find the latest schematic, BOM and Gerber files on GitHub:
-
-[./pcb](./pcb)
+<p align="center">
+  <img src="./pics/7.1/P1.JPG" height="300" alt="MicroWakeupper Front"/>
+  <img src="./pics/7.1/P2.JPG" height="300" alt="MicroWakeupper Back"/>
+</p>
 
 ---
 
-That's it!
+## Features
 
-Have fun and hopefully your project will run for years now ;-)
+- **External Wake-up** - Wake ESP8266 from deep sleep via button, switch, or PIR sensor
+- **Ultra-low Power** - As low as 7uA standby current (with J1 & J2 cut)
+- **Flexible Power** - 2.5V to 6V input (4xAA, 3.7V LiPo, etc.)
+- **NO/NC Support** - Works with normally open or normally closed switches
+- **Battery Monitoring** - Built-in voltage divider on A0 for VBatt measurement
+- **Debouncing** - Hardware-based button debouncing and retrigger protection
+- **Plug & Play** - Stacks directly on Wemos D1 Mini
 
-#Special thanks to @davedarko!
-+ Created on December 13th 2018 by Tobias Stöger (@tstoegi)  
-+ Updated to Rev.3 on January 7th 2019 by Tobias Stöger
-+ Updated to Rev.6 on May 20th 2021 by Tobias Stöger
-+ Updated to Rev.6.2 on May 28th 2021 by Tobias Stöger
-+ Updated to Rev.6.3 on Feb 3rd 2022 by Tobias Stöger
-+ Updated to Rev.7.1 on Jan 30th 2026 by Tobias Stöger
+---
+
+## Current Consumption
+
+| Configuration | Current | Notes |
+|--------------|---------|-------|
+| Default (J1 uncut) | ~254 uA | Wemos in deep sleep |
+| J1 cut | ~55 uA | Wemos completely off |
+| J1 + J2 cut | ~7 uA | No VBatt measurement |
+
+*Measured at VBatt 3.7V*
+
+---
+
+## Installation
+
+### Arduino Library Manager (Recommended)
+
+1. Open Arduino IDE
+2. Go to **Sketch** > **Include Library** > **Manage Libraries...**
+3. Search for `MicroWakeupper`
+4. Click **Install**
+
+### Manual Installation
+
+```bash
+cd ~/Arduino/libraries
+git clone https://github.com/tstoegi/MicroWakeupper.git
+```
+
+---
+
+## Quick Start
+
+```cpp
+#include <MicroWakeupper.h>
+
+MicroWakeupper mw;
+
+void setup() {
+    Serial.begin(115200);
+    mw.begin();
+
+    if (mw.resetedBySwitch()) {
+        Serial.println("Woke up from external trigger!");
+    } else {
+        Serial.println("Woke up from deep sleep timer");
+    }
+
+    // Read battery voltage
+    float vbatt = mw.readVBatt();
+    Serial.printf("Battery: %.2fV\n", vbatt);
+
+    // Do your work here...
+
+    // Re-enable triggering and go back to sleep
+    mw.reenable();
+    ESP.deepSleep(60e6); // Sleep for 60 seconds
+}
+
+void loop() {
+    // Not reached when using deep sleep
+}
+```
+
+---
+
+## API Reference
+
+### Constructor
+
+```cpp
+MicroWakeupper mw(bool disableAtStartup = true, int staPin = D6, int disPin = D7);
+```
+
+### Methods
+
+| Method | Description |
+|--------|-------------|
+| `begin()` | Initialize GPIO pins |
+| `resetedBySwitch()` | Returns `true` if woken by external trigger |
+| `reenable()` | Re-arm for new triggers (2-3 sec hardware delay) |
+| `disable()` | Prevent new triggers |
+| `isEnabled()` | Check if ready for new triggers |
+| `isActive()` | Check if currently triggered (LED on) |
+| `readVBatt()` | Read battery voltage via A0 |
+| `setVoltageDivider(float)` | Adjust voltage divider constant (default: 187) |
+
+---
+
+## Hardware
+
+### Pin Assignments
+
+| Pin | Function |
+|-----|----------|
+| D6 | Status (STA) - trigger detection |
+| D7 | Disable (DIS) - control triggering |
+| A0 | Battery voltage measurement |
+
+### Jumpers
+
+- **J1** - Cut to completely power off Wemos (no deep sleep)
+- **J2** - Cut to disable VBatt measurement (saves ~48uA)
+
+### Schematic & Gerber Files
+
+All hardware design files are available in the [`/pcb`](./pcb) directory.
+
+---
+
+## Where to Buy
+
+The assembled MicroWakeupper shield is available on Tindie:
+
+[![Tindie](https://img.shields.io/badge/Buy%20on-Tindie-blue)](https://www.tindie.com/stores/moreiolabs/)
+
+---
+
+## Example Projects
+
+- [MyMeter](https://github.com/tstoegi/MyMeter) - Gas/Water meter reading with MicroWakeupper
+
+---
+
+## License
+
+This project is open source hardware and software. See [LICENSE](LICENSE) for details.
+
+---
+
+## Acknowledgments
+
+Special thanks to [@davedarko](https://github.com/davedarko) for inspiration and support!
+
+---
+
+## Revision History
+
+| Version | Date | Author |
+|---------|------|--------|
+| R7.1 | Jan 30, 2026 | Tobias Stoeger |
+| R6.3 | Feb 3, 2022 | Tobias Stoeger |
+| R6.2 | May 28, 2021 | Tobias Stoeger |
+| R6 | May 20, 2021 | Tobias Stoeger |
+| R3 | Jan 7, 2019 | Tobias Stoeger |
+| R1 | Dec 13, 2018 | Tobias Stoeger |
+
+---
+
+<p align="center">
+  Made with care by <a href="https://twitter.com/tstoegi">@tstoegi</a>
+</p>
