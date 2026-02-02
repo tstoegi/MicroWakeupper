@@ -34,8 +34,8 @@ void loop()
   Serial.print("Current Battery Voltage:");
   Serial.println(microWakeupper.readVBatt());
 
-  microWakeupper.reenable();                    // Re-enable MicroWakeupper for new triggering
-  
+  microWakeupper.reenable();                    // IMPORTANT: Call before deepSleep() - enables new triggers AND saves state for resetedBySwitch()
+
   ESP.deepSleep(secondsToSleep * 1000000);      // ESP.deepSleep expects microseconds
 
   delay(200);
