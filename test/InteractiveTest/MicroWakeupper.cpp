@@ -45,8 +45,7 @@ void MicroWakeupper::reenable()
     // Save current state to RTC memory before sleep
     _rtcData.magic = RTC_MAGIC;
     _rtcData.wasInSleep = true;
-    // After reenable() + deepSleep() + power-off, STA will be LOW (hardware reset)
-    _rtcData.mwWasActive = false;
+    _rtcData.mwWasActive = isActive();
     _saveStateToRTC();
 
     digitalWrite(_dis_pin, LOW);

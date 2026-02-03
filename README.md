@@ -104,13 +104,15 @@ MicroWakeupper mw(bool disableAtStartup = true, int staPin = D6, int disPin = D7
 | Method | Description |
 |--------|-------------|
 | `begin()` | Initialize GPIO pins |
-| `resetedBySwitch()` | Returns `true` if woken by external trigger |
-| `reenable()` | Re-arm for new triggers (2-3 sec hardware delay) |
+| `resetedBySwitch()` | Returns `true` if woken by external trigger (see note below) |
+| `reenable()` | **Call before `deepSleep()`!** Re-arms triggers and saves state |
 | `disable()` | Prevent new triggers |
 | `isEnabled()` | Check if ready for new triggers |
 | `isActive()` | Check if currently triggered (LED on) |
 | `readVBatt()` | Read battery voltage via A0 |
 | `setVoltageDivider(float)` | Adjust voltage divider constant (default: 187) |
+
+> **Important:** `resetedBySwitch()` uses RTC memory to reliably distinguish between MicroWakeupper triggers, timer wakeups, and hardware resets. For accurate detection, you **must** call `reenable()` before `ESP.deepSleep()`. This saves the current state to RTC memory.
 
 ---
 
@@ -146,6 +148,40 @@ The assembled MicroWakeupper shield is available on Tindie:
 ## Example Projects
 
 - [MyMeter](https://github.com/tstoegi/MyMeter) - Gas/Water meter reading with MicroWakeupper
+
+---
+
+## Testing
+
+An interactive test sketch is included in the [`/test/InteractiveTest`](./test/InteractiveTest) directory. Use it to verify that the MicroWakeupper hardware and library are working correctly.
+
+### Why Testing Matters
+
+The ESP8266 cannot natively distinguish between different reset sources (timer wakeup, external trigger, hardware reset button). The MicroWakeupper library uses RTC memory to track state across deep sleep cycles, enabling reliable detection. The test sketch helps verify this works correctly with your hardware.
+
+### Running the Test
+
+1. Upload `test/InteractiveTest/InteractiveTest.ino` to your Wemos D1 Mini
+2. Open Serial Monitor at **115200 baud**
+3. Follow the on-screen instructions
+
+### Serial Commands
+
+| Command | Action |
+|---------|--------|
+| `s` | Start deep sleep (15 seconds) |
+| `r` | Re-print debug info |
+| `d` | Disable MicroWakeupper |
+| `e` | Enable MicroWakeupper |
+
+### Test Scenarios
+
+| Action | Expected `resetedBySwitch()` |
+|--------|------------------------------|
+| Power on (cold boot) | `false` |
+| Send `s`, wait for timer | `false` |
+| Send `s`, trigger switch | `true` |
+| Send `s`, press reset button | `false` |
 
 ---
 
